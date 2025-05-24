@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade Conectada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #007BFF;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+        }
+        .tab {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        .tab:hover {
+            background: #0056b3;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .active {
+            display: block;
+        }
+        label, input, textarea, select {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Comunidade Conectada</h1>
+        
+        <div class="tabs">
+            <div class="tab" onclick="showTab('incidentes')">Incidentes</div>
+            <div class="tab" onclick="showTab('servicos')">Serviços Públicos</div>
+            <div class="tab" onclick="showTab('eventos')">Eventos Culturais</div>
+        </div>
+
+        <div id="incidentes" class="content active">
+            <h2>Registrar Incidente</h2>
+            <input type="text" placeholder="Título do incidente">
+            <textarea placeholder="Descrição"></textarea>
+            <button>Enviar Relatório</button>
+        </div>
+
+        <div id="servicos" class="content">
+            <h2>Agendar Serviço Público</h2>
+            <input type="text" placeholder="Serviço desejado">
+            <input type="date">
+            <button>Agendar</button>
+        </div>
+
+        <div id="eventos" class="content">
+            <h2>Eventos Culturais</h2>
+            <select>
+                <option value="show">Show ao vivo</option>
+                <option value="teatro">Peça de teatro</option>
+                <option value="exposicao">Exposição de arte</option>
+            </select>
+            <button>Participar</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
